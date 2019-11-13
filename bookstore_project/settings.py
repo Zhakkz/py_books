@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ue%*d13yt_3@tfvenzc#jx=s)n0#yd+0p3nvgfyv*wyo&$=+oe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = []      
 
@@ -69,6 +69,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 #end Allauth config
+
+SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
